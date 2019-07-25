@@ -1,6 +1,7 @@
 "flutter_provider 状态管理、多语言 demo" 
 
 使用以下插件：
+
 状态管理：provider        
 数据持久化：flutter_localizations
    
