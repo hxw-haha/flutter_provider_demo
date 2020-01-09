@@ -11,15 +11,16 @@ import 'local/locale_model.dart';
 import 'local/locale_delegate.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runZoned(() async {
     final Color localColor = await ThemeConfig.localThemeColor();
     final Locale localLocale = await LocaleConfig.localLocale();
     runApp(MultiProvider(
       providers: [
-        ChangeNotifierProvider(builder: (_) {
+        ChangeNotifierProvider(create: (_) {
           return ThemeModel.initThemeModel(localColor);
         }),
-        ChangeNotifierProvider(builder: (_) {
+        ChangeNotifierProvider(create: (_) {
           return LocaleModel.initLocalModel(localLocale);
         }),
       ],
